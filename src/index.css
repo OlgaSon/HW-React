@@ -15,3 +15,49 @@ code {
 .name--highlighted {
   color: red;
 }
+
+.site {
+  background-color: darkgrey;
+}
+
+.header, .content{
+  background-color: lightgrey;
+}
+
+button {
+  padding: 1vmin;
+  margin: 1vmin;
+}
+
+.header, .menu, .sidebar, .footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none; 
+  padding: 0;
+  margin: 2vh 15vw;
+}
+
+
+.menu, .footer{
+  background-color: grey;
+  height: 10vh;
+}
+
+.menu{
+  width: 80vw
+}
+
+.sidebar{
+  background-color: grey;  
+  width: 10vw;
+  height: 70vh;
+  margin: 0 2vw;
+  flex-direction: column;
+  position: fixed;
+}
+
+.content {
+  margin: 0 15vw;
+}

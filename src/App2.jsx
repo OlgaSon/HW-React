@@ -2,6 +2,7 @@ import './App.css';
 import React from "react";
 import TestClassComponent from "./2/TestClassComponent";
 import Counter from "./2/Counter";
+import Site from "./2/Site";
 import { useState } from 'react';
 
 
@@ -21,7 +22,9 @@ function App2() {
       <h1>{counter}</h1>
       <Counter appCounter={counter}></Counter> */}
 
-      <Counter counter={counter} setCounter={setCounter}></Counter>
+      {/* <Counter counter={counter} setCounter={setCounter}></Counter> */}
+
+      <Site></Site>
 
     </div>
   );
