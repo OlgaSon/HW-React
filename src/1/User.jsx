@@ -16,9 +16,11 @@ const slice5 = (name) => {
 };
 
 const User = ({ name }) => {
-  return isPalindrome(name)
-    ? (<div className="name--highlighted">{findE(slice5(name))}</div>)
-    : (<div>{findE(slice5(name))}</div>)
+  let classN;
+  isPalindrome(name) ? classN = "name--highlighted" : classN = "name";
+  return (
+    <div className={classN}>{findE(slice5(name))}</div>
+  )
 };
 
 
