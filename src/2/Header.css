@@ -1,0 +1,15 @@
+.header {
+    background-color: lightgrey;
+    margin: 2vh 15vw;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;    
+}
+
+button {
+    padding: 1vmin;
+    margin: 1vmin;
+  }
