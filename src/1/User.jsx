@@ -1,26 +1,38 @@
-// import ComposableUser from "./ComposableUser";
-
-function isPalindrome(name) {
+const isPalindrome = (name) => {
   let len = Math.floor(name.length / 2);
-  for (let i = 0; i < len; i++)
+  for (let i = 0; i < len; i++) {
     if (name.toLowerCase()[i] !== name[name.length - i - 1]) return false;
-    else return true;
-}
-
-const User = ({ name }) => {
-  if (name.indexOf("e") !== -1) {
-    return <div>It’s Premium User! Welcome, {name}!</div>;
-  } else if (name.length > 5) {
-    name = `${name.slice(0, 5)}...`;
-    return <div>It's user {name}</div>;
-  } else if (isPalindrome(name)) {
-    return <div className="name--highlighted">It's user {name}</div>;
-  } else {
-    return <div>It's user {name}</div>;
-  }
+    else if (i === len - 1) return true
+    else continue
+  };
 };
 
-// const User = ComposableUser;
+const findE = (name) => {
+  return name.includes('e') ? `It’s Premium User! Welcome, ${name}!` : `It's user ${name}`
+};
+
+const slice5 = (name) => {
+  return name.length > 5 ? `${name.substring(0, 5)}...` : name
+};
+
+const User = ({ name }) => {
+  return isPalindrome(name)
+    ? (<div className="name--highlighted">{findE(slice5(name))}</div>)
+    : (<div>{findE(slice5(name))}</div>)
+};
+
+
+//   if (name.indexOf("e") !== -1) {
+//     return <div>It’s Premium User! Welcome, {name}!</div>;
+//   } else if (name.length > 5) {
+//     name = `${name.slice(0, 5)}...`;
+//     return <div>It's user {name}</div>;
+//   } else if (isPalindrome(name)) {
+//     return <div className="name--highlighted">It's user {name}</div>;
+//   } else {
+//     return <div>It's user {name}</div>;
+//   }
+// };
 
 
 export default User;

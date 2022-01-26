@@ -3,7 +3,7 @@ import User from "./User";
 
 const data = [
   { id: "uniq1", name: "Paul" },
-  { id: "uniq2", name: "Mary" },
+  { id: "uniq2", name: "Mareeram" },
   { id: "uniq3", name: "Viktor" },
   { id: "uniq4", name: "Suzanna" },
   { id: "uniq5", name: "Peter" },
