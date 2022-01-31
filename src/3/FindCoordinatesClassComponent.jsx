@@ -6,7 +6,7 @@ import {
 class FindCoordinatesClassComponent extends Component {
 
     state = {
-        value: 0
+        value: ""
     };
 
     handelMouseMove = (event) => {

@@ -105,30 +105,30 @@ class ClassComponentLifeStyle extends Component {
     };
 
 
-        // Catch. getDerivedStateFromError()
-        static getDerivedStateFromError(error) {
-            return { hasError: true };
+    /* // Catch. getDerivedStateFromError()
+    static getDerivedStateFromError(error) {
+        return { hasError: true };
+    }
+    render() {
+        if (this.state.hasError) {
+            return <p>Smth is wrong</p>
         }
-        render() {
-            if (this.state.hasError) {
-                return <p>Smth is wrong</p>
-            }
-            // const { count } = this.state;
-            // const isEven = count % 2 === 0;
-            return (
-                // <div>
-                //     <p>Count: {count}.</p>
-                //     <p>It's {isEven ? 'even' : 'odd'}</p>
-                //     <div>
-                //         <button onClick={this.incrementCount}>incrementCount</button>
-                //         <button onClick={this.decrementCount}>decrementCount</button>
-                //     </div>
-                // </div>
-            
+        // const { count } = this.state;
+        // const isEven = count % 2 === 0;
+        return (
+            // <div>
+            //     <p>Count: {count}.</p>
+            //     <p>It's {isEven ? 'even' : 'odd'}</p>
+            //     <div>
+            //         <button onClick={this.incrementCount}>incrementCount</button>
+            //         <button onClick={this.decrementCount}>decrementCount</button>
+            //     </div>
+            // </div>
+
             // this.props.children
             <p>Everyth is Ok</p>
-            )
-        };
+        )
+    }; */
 
 };
 
