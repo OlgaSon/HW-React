@@ -1,0 +1,26 @@
+.card {
+    width: 38vw;
+    margin: 5px;
+    border: 1px solid grey;  
+}
+
+.title {
+    padding: 10px 20px;
+    color: rgb(2, 125, 196);
+    background-color: rgba(211, 211, 211, 0.5);  
+    text-decoration: underline;
+    text-align: start;
+    font-weight: normal;
+}
+.title:hover{
+    font-weight: bold;
+}
+
+.text {
+    text-align: start;
+    padding: 5px 10px;
+}
+
+.display-none {
+    display: none;
+}
