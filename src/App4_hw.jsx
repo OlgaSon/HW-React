@@ -14,8 +14,8 @@ function App4() {
 
       <section className='card'>
         <h3>Accordion component</h3>
-        {accordionData.map(({ title, text }) => (
-          <Accordion title={title} text={text} />
+        {accordionData.map(({ title, content }) => (
+          <Accordion title={title} content={content} />
         ))}
       </section>
 

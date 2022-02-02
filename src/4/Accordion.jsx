@@ -2,17 +2,17 @@ import { useState } from "react";
 import './Accordion.css';
 
 
-const Accordion = ({ title, text }) => {
-    const [className, setClassName] = useState('display-none');
+const Accordion = ({ title, content }) => {
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => {
-        setClassName(className === 'text' ? 'display-none' : 'text');
+        setIsOpen(!isOpen);
     };
 
     return (
         <div>
             <h2 className='title' onClick={handleClick}>{title}</h2>
-            {(className === 'text') && <div className={className}>{text}</div>}
+            {(isOpen) && <div className='text'>{content}</div>}
         </div>
     )
 };
