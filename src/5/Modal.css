@@ -1,0 +1,8 @@
+.modal {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 300px;
+    background-color: cadetblue;
+}
