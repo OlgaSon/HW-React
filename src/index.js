@@ -8,6 +8,9 @@ import App3_hw from './App3_hw';
 import App4 from './App4';
 import App4_hw from './App4_hw';
 import App5 from './App5';
+import App5_hw from './App5_hw';
+// import App6 from './App6';
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -18,7 +21,9 @@ ReactDOM.render(
     {/* <App3_hw /> */}
     {/* <App4 /> */}
     {/* <App4_hw /> */}
-        <App5 />
+    {/* <App5 /> */}
+    <App5_hw />
+    {/* <App6></App6> */}
     
   </React.StrictMode>,
   document.getElementById('root')
