@@ -1,40 +1,183 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Outlet, Link, useNavigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Outlet, Link, useNavigate, useLocation } from 'react-router-dom'
 import Home from './6/pages/Home'
 import About from './6/pages/About'
 import Articles from './6/pages/Articles'
 
 
-// 1. Несколько страниц(переход в адресной строке через /), ссылки на них через кнопку(navigate) и Link.
-// const Layout = () => {
-// let navigate = useNavigate();
-// return <div>
-// <div>Header and some text</div>
+// // 1.1. Несколько страниц(переход в адресной строке через /), 
 
-// <button onClick={() => {
-// navigate('/')
-// // не использовать тег a.
-// }}>to Home page
-// </button>
-// <br />
+// function App6() {
+//   return <BrowserRouter>
+//     <Routes>
+//       <Route path='/' element={<div>Home Page</div>}> </Route>
+//       <Route path='next' element={<div>Next page</div>}></Route>
+//     </Routes>
+//   </BrowserRouter>
+// };
 
-// <Link to="/">Home</Link>
 
-// <Outlet></Outlet>
-// </div>
+
+// // 1.2. Cсылки на страницы через Link.
+// // Outlet - вставка разного доп.содержимого в шаблон (Layout).
+
+
+// const Layout = (props) => {
+//   // console.log(props);
+
+//   return <div>
+//     <h3>Header and some text</h3>
+
+//     <Link to="/">Home</Link>
+
+//     <Outlet></Outlet>
+
+//   </div>
 // }
 
 // function App6() {
-// return <BrowserRouter>
-// <Link to="/about/new">link to the /about/new page</Link>
-// <Routes>
-// <Route path='/' element={<div>Home Page</div>}> </Route>
-// <Route path='/about' element={<Layout></Layout>}></Route>
-// <Route path='/next' element={<div>next</div>}></Route>
-// </Routes>
-// </BrowserRouter>
+//   return <BrowserRouter>
+//     <Routes>
+//       <Route path='/' element=
+//         {
+//           <div>Home Page <br />
+//             <Link to="/about/next">link to the about--next page</Link>
+//           </div>
+//         }>
+//       </Route>
+//       <Route path='about' element={<Layout></Layout>}>
+//         <Route path='next' element={<div>Next page</div>}></Route>
+//       </Route>
+//     </Routes>
+//   </BrowserRouter>
 // }
+
+
+
+// // 1.3. Cсылки на страницы через useNavigate().
+// const Layout = () => {
+
+//   let navigate = useNavigate();
+
+//   return <div>
+//     <h3>Header and some text</h3>
+
+//     <button onClick={() => {
+//       navigate('/')
+//       // не использовать тег a.
+//     }}>to Home page
+//     </button>
+
+//     <Outlet></Outlet>
+//   </div>
+// }
+
+// function App6() {
+//   return <BrowserRouter>
+//     <Routes>
+//       <Route path='/' element=
+//         {
+//           <div>Home Page <br />
+//             <Link to="/about/next">link to the about--next page</Link>
+//           </div>
+//         }>
+//       </Route>
+//       <Route path='about' element={<Layout></Layout>}>
+//         <Route path='next' element={<div>Next page</div>}></Route>
+//       </Route>
+//     </Routes>
+//   </BrowserRouter>
+// }
+
+
+
+
+
+
+// // 1.4. Определение ссылки в адресной строке useLocation().
+// const Layout = () => {
+//   let navigate = useNavigate();
+
+//   let location = useLocation();
+//   console.log(location);
+
+//   return <div>
+//     <h3>Header and some text</h3>
+//     <button onClick={() => { navigate('/') }}>to Home page</button>
+//     <Outlet></Outlet>
+//   </div>
+// }
+
+// function App6() {
+//   return <BrowserRouter>
+//     <Routes>
+//       <Route path='/' element=
+//         {
+//           <div>Home Page <br />
+//             <Link to="/about/next">link to the about--next page</Link>
+//           </div>
+//         }>
+//       </Route>
+//       <Route path='about' element={<Layout></Layout>}>
+//         <Route path='next' element={<div>Next page</div>}></Route>
+//       </Route>
+//     </Routes>
+//   </BrowserRouter>
+// }
+
+
+
+// // 1.5 Ссылки и классовый компонент.
+
+// class Test extends React.Component {
+//   render() {
+//     return <div>Test</div>;
+//   };
+// };
+
+// function App6() {
+//   return <BrowserRouter>
+//     <Routes>
+//       <Route path='/' element={<div>Home Page <br />
+//         <Link to="/about">link to the About page</Link>
+//       </div>}> </Route>
+//       <Route path='about' element=
+//         {
+//           <Test></Test>
+//         }>
+//       </Route>
+//     </Routes>
+//   </BrowserRouter>
+// }
+
+
+// 1.6. path * : 404 Page not found
+
+const Layout = () => {
+  let navigate = useNavigate();
+  return <div>
+    <h3>Header and some text</h3>
+    <button onClick={() => { navigate('/') }}>to Home page</button>
+    <Outlet></Outlet>
+  </div>
+}
+
+function App6() {
+  return <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<div>Home Page <br />
+        <Link to="/about/next">link to the about--next page</Link>
+      </div>}> </Route>
+      <Route path='about' element={<Layout></Layout>}>
+        <Route path='next' element={<div>Next page</div>}></Route>
+      </Route>
+
+      <Route path='*' element={<div>404 Page not found</div>}></Route>
+
+    </Routes>
+  </BrowserRouter>
+}
 
 
 
@@ -98,52 +241,52 @@ import Articles from './6/pages/Articles'
 
 // 4. Роли и доступ
 
-const PrivateRoute = ({ isAllow, children }) => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!isAllow) {
-      navigate('/');
-    };
-  }, []);
-  return isAllow ? children : null;
-};
+// const PrivateRoute = ({ isAllow, children }) => {
+//   const navigate = useNavigate();
+//   useEffect(() => {
+//     if (!isAllow) {
+//       navigate('/');
+//     };
+//   }, []);
+//   return isAllow ? children : null;
+// };
 
-const Profile = () => {
-  return <div> UserInfo</div>;
-};
+// const Profile = () => {
+//   return <div> UserInfo</div>;
+// };
 
-const Admin = () => {
-  return <div> AdminInfo</div>;
-};
+// const Admin = () => {
+//   return <div> AdminInfo</div>;
+// };
 
-function App6() {
-  const [userRole, setUserRole] = useState('guest');
+// function App6() {
+//   const [userRole, setUserRole] = useState('guest');
 
-  return <BrowserRouter>
+//   return <BrowserRouter>
 
-    <Link to='/'>go to Home page</Link> <br />
-    <Link to='/profile'>go to Profile</Link> <br />
-    <Link to='/admin'>go to Admin</Link> <br />
+//     <Link to='/'>go to Home page</Link> <br />
+//     <Link to='/profile'>go to Profile</Link> <br />
+//     <Link to='/admin'>go to Admin</Link> <br />
 
-    <button onClick={() => { setUserRole('user') }}>User</button>
-    <button onClick={() => { setUserRole('admin') }}>Admin</button>
+//     <button onClick={() => { setUserRole('user') }}>User</button>
+//     <button onClick={() => { setUserRole('admin') }}>Admin</button>
 
-    <Routes>
-      <Route path='/' element={<div>HomePage</div>}></Route>;
-      <Route path='/profile' element={
-        <PrivateRoute isAllow={userRole === 'user' || userRole === 'admin'}>
-          <Profile />
-        </PrivateRoute>} >
-      </Route>
-      <Route path='/admin' element={
-        <PrivateRoute isAllow={userRole === 'admin'}>
-          <Admin />
-        </PrivateRoute>} >
-      </Route>
-    </Routes>
+//     <Routes>
+//       <Route path='/' element={<div>HomePage</div>}></Route>;
+//       <Route path='/profile' element={
+//         <PrivateRoute isAllow={userRole === 'user' || userRole === 'admin'}>
+//           <Profile />
+//         </PrivateRoute>} >
+//       </Route>
+//       <Route path='/admin' element={
+//         <PrivateRoute isAllow={userRole === 'admin'}>
+//           <Admin />
+//         </PrivateRoute>} >
+//       </Route>
+//     </Routes>
 
-  </BrowserRouter>;
-};
+//   </BrowserRouter>;
+// };
 
 
 export default App6;
