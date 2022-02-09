@@ -152,32 +152,32 @@ import Articles from './6/pages/Articles'
 // }
 
 
-// 1.6. path * : 404 Page not found
+// // 1.6. path * : 404 Page not found
 
-const Layout = () => {
-  let navigate = useNavigate();
-  return <div>
-    <h3>Header and some text</h3>
-    <button onClick={() => { navigate('/') }}>to Home page</button>
-    <Outlet></Outlet>
-  </div>
-}
+// const Layout = () => {
+//   let navigate = useNavigate();
+//   return <div>
+//     <h3>Header and some text</h3>
+//     <button onClick={() => { navigate('/') }}>to Home page</button>
+//     <Outlet></Outlet>
+//   </div>
+// }
 
-function App6() {
-  return <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<div>Home Page <br />
-        <Link to="/about/next">link to the about--next page</Link>
-      </div>}> </Route>
-      <Route path='about' element={<Layout></Layout>}>
-        <Route path='next' element={<div>Next page</div>}></Route>
-      </Route>
+// function App6() {
+//   return <BrowserRouter>
+//     <Routes>
+//       <Route path='/' element={<div>Home Page <br />
+//         <Link to="/about/next">link to the about--next page</Link>
+//       </div>}> </Route>
+//       <Route path='about' element={<Layout></Layout>}>
+//         <Route path='next' element={<div>Next page</div>}></Route>
+//       </Route>
 
-      <Route path='*' element={<div>404 Page not found</div>}></Route>
+//       <Route path='*' element={<div>404 Page not found</div>}></Route>
 
-    </Routes>
-  </BrowserRouter>
-}
+//     </Routes>
+//   </BrowserRouter>
+// }
 
 
 
@@ -241,52 +241,53 @@ function App6() {
 
 // 4. Роли и доступ
 
-// const PrivateRoute = ({ isAllow, children }) => {
-//   const navigate = useNavigate();
-//   useEffect(() => {
-//     if (!isAllow) {
-//       navigate('/');
-//     };
-//   }, []);
-//   return isAllow ? children : null;
-// };
+const PrivateRoute = ({ isAllow, children }) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isAllow) {
+      navigate('/');
+    };
+  }, []);
+  return isAllow ? children : null;
+};
 
-// const Profile = () => {
-//   return <div> UserInfo</div>;
-// };
+const Profile = () => {
+  return <div> UserInfo</div>;
+};
 
-// const Admin = () => {
-//   return <div> AdminInfo</div>;
-// };
+const Admin = () => {
+  return <div> AdminInfo</div>;
+};
 
-// function App6() {
-//   const [userRole, setUserRole] = useState('guest');
+function App6() {
+  const [userRole, setUserRole] = useState('guest');
 
-//   return <BrowserRouter>
+  return <BrowserRouter>
 
-//     <Link to='/'>go to Home page</Link> <br />
-//     <Link to='/profile'>go to Profile</Link> <br />
-//     <Link to='/admin'>go to Admin</Link> <br />
+    <Link to='/'>go to Home page</Link> <br />
+    <Link to='/profile'>go to Profile</Link> <br />
+    <Link to='/admin'>go to Admin</Link> <br />
 
-//     <button onClick={() => { setUserRole('user') }}>User</button>
-//     <button onClick={() => { setUserRole('admin') }}>Admin</button>
+    <button onClick={() => { setUserRole('guest') }}>Guest</button>
+    <button onClick={() => { setUserRole('user') }}>User</button>
+    <button onClick={() => { setUserRole('admin') }}>Admin</button>
 
-//     <Routes>
-//       <Route path='/' element={<div>HomePage</div>}></Route>;
-//       <Route path='/profile' element={
-//         <PrivateRoute isAllow={userRole === 'user' || userRole === 'admin'}>
-//           <Profile />
-//         </PrivateRoute>} >
-//       </Route>
-//       <Route path='/admin' element={
-//         <PrivateRoute isAllow={userRole === 'admin'}>
-//           <Admin />
-//         </PrivateRoute>} >
-//       </Route>
-//     </Routes>
+    <Routes>
+      <Route path='/' element={<div>HomePage</div>}></Route>;
+      <Route path='/profile' element={
+        <PrivateRoute isAllow={userRole === 'user' || userRole === 'admin'}>
+          <Profile />
+        </PrivateRoute>} >
+      </Route>
+      <Route path='/admin' element={
+        <PrivateRoute isAllow={userRole === 'admin'}>
+          <Admin />
+        </PrivateRoute>} >
+      </Route>
+    </Routes>
 
-//   </BrowserRouter>;
-// };
+  </BrowserRouter>;
+};
 
 
 export default App6;
