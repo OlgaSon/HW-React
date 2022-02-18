@@ -1,0 +1,13 @@
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+input:checked+span {
+  text-decoration: line-through;
+  color: grey
+}
+
+span:last-child {
+  cursor: pointer;
+}

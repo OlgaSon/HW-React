@@ -12,8 +12,12 @@ import App5_hw from './App5_hw';
 import App6 from './App6';
 import App6_hw from './App6_hw';
 // import App7 from './App7';
-import App7_hw from './App7_hw.jsx';
-import reportWebVitals from './reportWebVitals';
+// import App7_hw from './App7_hw.jsx';
+// import App8 from './App8.jsx';
+import App8_hw from './App8_hw.jsx';
+// import App9 from './App9.jsx';
+// import App10 from './App10.jsx';
+
 
 
 ReactDOM.render(
@@ -29,13 +33,14 @@ ReactDOM.render(
     {/* <App6></App6> */}
     {/* <App6_hw></App6_hw> */}
     {/* <App7></App7> */}
-    <App7_hw></App7_hw>
+    {/* <App7_hw></App7_hw> */}
+    {/* <App8></App8> */}
+     <App8_hw></App8_hw>
+    {/* <App9></App9> */}
+    {/* <App10></App10> */}
     
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
